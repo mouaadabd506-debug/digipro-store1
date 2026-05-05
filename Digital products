@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPro Store</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            background: #0f0f0f;
+            color: white;
+            text-align: center; 
+            padding: 100px 20px;
+        }
+        h1 { 
+            font-size: 50px; 
+            color: #00ff88; 
+            margin-bottom: 20px;
+        }
+        p { font-size: 22px; }
+    </style>
+</head>
+<body>
+    <h1>مرحبا بيك في DigiPro 🔥</h1>
+    <p>منصة المنتجات الرقمية</p>
+    <p>الموقع خدام 100%</p>
+</body>
+</html>
