@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPro Store - منصة المنتجات الرقمية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 2px solid #00ff88;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00ff88;
+            text-shadow: 0 0 15px #00ff88;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+        
+        /* الهيرو */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .hero h1 {
+            font-size: 55px;
+            color: #00ff88;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px #00ff88;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #00ff88;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+        }
+        
+        /* المنتجات */
+        .products {
+            padding: 80px 20px;
+            background: #111;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            color: #00ff88;
+            margin-bottom: 50px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border: 2px solid #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .product-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+        
+        .product-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .product-card h3 {
+            font-size: 24px;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .product-card p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        
+        .price {
+            font-size: 32px;
+            color: #fff;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .btn-buy {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        
+        .btn-buy:hover {
+            background: #00cc6a;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid #2d2d2d;
+        }
+        
+        footer p {
+            color: #888;
+            margin: 10px 0;
+        }
+        
+        footer a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+        
+        /* ريسبونسيف */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 35px; }
+            .hero p { font-size: 18px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🔥 DigiPro Store</div>
+                <div class="nav-links">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#products">المنتجات</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- الهيرو -->
+    <section class="hero" id="home">
+        <h1>مرحبا بيك في DigiPro</h1>
+        <p>أفضل المنتجات الرقمية بين يديك</p>
+        <a href="#products" class="btn">تصفح المنتجات</a>
+    </section>
+
+    <!-- المنتجات -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا الرقمية</h2>
+            <div class="product-grid">
+                
+                <!-- منتج 1 -->
+                <div class="product-card">
+                    <div class="product-icon">📚</div>
+                    <h3>كتاب إلكتروني</h3>
+                    <p>تعلم البرمجة من الصفر حتى الاحتراف. 200+ صفحة PDF</p>
+                    <div class="price">1500 دج</div>
+                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
+                </div>
+
+                <!-- منتج 2 -->
+                <div class="product-card">
+                    <div class="product-icon">🎨</div>
+                    <h3>قوالب تصميم</h3>
+                    <p>50+ قالب PSD احترافي للسوشيال ميديا والمواقع</p>
+                    <div class="price">2000 دج</div>
+                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
+                </div>
+
+                <!-- منتج 3 -->
+                <div class="product-card">
+                    <div class="product-icon">🎓</div>
+                    <h3>كورس فيديو</h3>
+                    <p>كورس التسويق الرقمي الكامل. 10 ساعات فيديو HD</p>
+                    <div class="price">3500 دج</div>
+                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="container">
+            <p style="font-size: 20px; color: #00ff88; margin-bottom: 20px;">DigiPro Store</p>
+            <p>تواصل معنا: <a href="https://wa.me/213550000000">واتساب 0550000000</a></p>
+            <p>الإيميل: digipro@example.com</p>
+            <p style="margin-top: 20px;">© 2026 DigiPro. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
