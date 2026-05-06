@@ -3,271 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiPro Store - منصة المنتجات الرقمية</title>
+    <title>DigiPro Marketplace - منصة المنتجات الرقمية بالكريبتو</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            line-height: 1.6;
-        }
-        
-        /* الهيدر */
-        header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 20px 0;
-            border-bottom: 2px solid #00ff88;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #00ff88;
-            text-shadow: 0 0 15px #00ff88;
-        }
-        
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #00ff88;
-        }
-        
-        /* الهيرو */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
-        }
-        
-        .hero h1 {
-            font-size: 55px;
-            color: #00ff88;
-            margin-bottom: 20px;
-            text-shadow: 0 0 30px #00ff88;
-        }
-        
-        .hero p {
-            font-size: 22px;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #00ff88;
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
-        }
-        
-        /* المنتجات */
-        .products {
-            padding: 80px 20px;
-            background: #111;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            color: #00ff88;
-            margin-bottom: 50px;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .product-card {
-            background: #1a1a1a;
-            border: 2px solid #2d2d2d;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        
-        .product-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-        }
-        
-        .product-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-        
-        .product-card h3 {
-            font-size: 24px;
-            color: #00ff88;
-            margin-bottom: 10px;
-        }
-        
-        .product-card p {
-            color: #aaa;
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-        
-        .price {
-            font-size: 32px;
-            color: #fff;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-        
-        .btn-buy {
-            background: #00ff88;
-            color: #000;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-        }
-        
-        .btn-buy:hover {
-            background: #00cc6a;
-        }
-        
-        /* الفوتر */
-        footer {
-            background: #1a1a1a;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 2px solid #2d2d2d;
-        }
-        
-        footer p {
-            color: #888;
-            margin: 10px 0;
-        }
-        
-        footer a {
-            color: #00ff88;
-            text-decoration: none;
-        }
-        
-        /* ريسبونسيف */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 35px; }
-            .hero p { font-size: 18px; }
-            .nav-links { display: none; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; }
+       .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e172a 100%); }
+       .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
     </style>
 </head>
-<body>
-    <!-- الهيدر -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">🔥 DigiPro Store</div>
-                <div class="nav-links">
-                    <a href="#home">الرئيسية</a>
-                    <a href="#products">المنتجات</a>
-                    <a href="#contact">تواصل معنا</a>
-                </div>
-            </nav>
+<body class="bg-slate-950 text-white">
+
+    <!-- Navbar -->
+    <nav class="gradient-bg border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black text-emerald-400">
+                <i class="fa-solid fa-store"></i> DigiPro Marketplace
+            </div>
+            <div class="hidden md:flex gap-6 text-slate-300">
+                <a href="#products" class="hover:text-emerald-400">المتجر</a>
+                <a href="#sell" class="hover:text-emerald-400">افتح متجرك</a>
+                <a href="#crypto" class="hover:text-emerald-400">ادفع بالكريبتو</a>
+            </div>
+            <div class="flex gap-3">
+                <button id="connectWallet" class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg font-bold transition">
+                    <i class="fa-solid fa-wallet"></i> اربط المحفظة
+                </button>
+                <button class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 px-4 py-2 rounded-lg font-bold">
+                    <i class="fa-solid fa-user"></i> حسابي
+                </button>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- الهيرو -->
-    <section class="hero" id="home">
-        <h1>مرحبا بيك في DigiPro</h1>
-        <p>أفضل المنتجات الرقمية بين يديك</p>
-        <a href="#products" class="btn">تصفح المنتجات</a>
-    </section>
-
-    <!-- المنتجات -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">منتجاتنا الرقمية</h2>
-            <div class="product-grid">
-                
-                <!-- منتج 1 -->
-                <div class="product-card">
-                    <div class="product-icon">📚</div>
-                    <h3>كتاب إلكتروني</h3>
-                    <p>تعلم البرمجة من الصفر حتى الاحتراف. 200+ صفحة PDF</p>
-                    <div class="price">1500 دج</div>
-                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
-                </div>
-
-                <!-- منتج 2 -->
-                <div class="product-card">
-                    <div class="product-icon">🎨</div>
-                    <h3>قوالب تصميم</h3>
-                    <p>50+ قالب PSD احترافي للسوشيال ميديا والمواقع</p>
-                    <div class="price">2000 دج</div>
-                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
-                </div>
-
-                <!-- منتج 3 -->
-                <div class="product-card">
-                    <div class="product-icon">🎓</div>
-                    <h3>كورس فيديو</h3>
-                    <p>كورس التسويق الرقمي الكامل. 10 ساعات فيديو HD</p>
-                    <div class="price">3500 دج</div>
-                    <button class="btn-buy" onclick="alert('تواصل معنا على واتساب: 0550000000')">اشتري الآن</button>
-                </div>
-
+    <!-- Hero -->
+    <section class="gradient-bg py-20 text-center">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full mb-6">
+                <i class="fa-brands fa-bitcoin"></i> أول منصة جزائرية تقبل الكريبتو
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                بيع واشري بالكريبتو
+            </h1>
+            <p class="text-xl text-slate-300 mb-10">منصة Multi-Vendor للمنتجات الرقمية. ادفع بـ USDT, BTC, BNB واسحب أرباحك فورا</p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#products" class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg">
+                    ابدا التسوق <i class="fa-solid fa-arrow-down mr-2"></i>
+                </a>
+                <a href="#sell" class="glass hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg">
+                    افتح متجرك مجانا
+                </a>
+            </div>
+            <!-- Crypto Icons -->
+            <div class="mt-12 flex justify-center gap-8 text-4xl text-slate-500">
+                <i class="fa-brands fa-bitcoin hover:text-orange-500 transition"></i>
+                <i class="fa-brands fa-ethereum hover:text-blue-400 transition"></i>
+                <span class="hover:text-yellow-400 transition font-bold">USDT</span>
+                <span class="hover:text-yellow-400 transition font-bold">BNB</span>
             </div>
         </div>
     </section>
 
-    <!-- الفوتر -->
-    <footer id="contact">
-        <div class="container">
-            <p style="font-size: 20px; color: #00ff88; margin-bottom: 20px;">DigiPro Store</p>
-            <p>تواصل معنا: <a href="https://wa.me/213550000000">واتساب 0550000000</a></p>
-            <p>الإيميل: digipro@example.com</p>
-            <p style="margin-top: 20px;">© 2026 DigiPro. جميع الحقوق محفوظة</p>
+    <!-- Crypto Payment Section -->
+    <section id="crypto" class="py-16 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12">ادفع بالطريقة اللي تحبها</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-5xl mb-4 text-orange-500"><i class="fa-brands fa-bitcoin"></i></div>
+                    <h3 class="font-bold mb-2">Bitcoin</h3>
+                    <p class="text-slate-400 text-sm">BTC Network</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-5xl mb-4 text-green-500"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <h3 class="font-bold mb-2">USDT</h3>
+                    <p class="text-slate-400 text-sm">TRC20, BEP20, ERC20</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-5xl mb-4 text-yellow-500"><i class="fa-brands fa-btc"></i></div>
+                    <h3 class="font-bold mb-2">Binance Pay</h3>
+                    <p class="text-slate-400 text-sm">ادفع بـ ID فقط</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-5xl mb-4 text-blue-500"><i class="fa-brands fa-paypal"></i></div>
+                    <h3 class="font-bold mb-2">PayPal + CIB</h3>
+                    <p class="text-slate-400 text-sm">للدفع التقليدي</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-4xl font-black">المتاجر النشطة</h2>
+                <select class="glass px-4 py-2 rounded-lg">
+                    <option>كل التصنيفات</option>
+                    <option>كتب إلكترونية</option>
+                    <option>كورسات</option>
+                    <option>قوالب</option>
+                </select>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product Card -->
+                <div class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500 transition">
+                    <div class="bg-gradient-to-br from-purple-600 to-pink-600 h-48 flex items-center justify-center text-6xl">📚</div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full">
+                            <span class="text-sm text-slate-400">متجر أحمد تيك</span>
+                            <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">حزمة تعلم Web3 الكاملة</h3>
+                        <div class="flex gap-1 text-yellow-400 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-slate-500 text-sm mr-2">(127)</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <div class="text-2xl font-black text-emerald-400">50 USDT</div>
+                                <div class="text-xs text-slate-500">≈ 6,750 دج</div>
+                            </div>
+                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs">-40%</span>
+                        </div>
+                        <button onclick="buyWithCrypto('حزمة Web3', 50)" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-slate-900 py-3 rounded-xl font-bold transition">
+                            <i class="fa-brands fa-bitcoin"></i> اشتري بالكريبتو
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seller Section -->
+    <section id="sell" class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-6">افتح متجرك في DigiPro</h2>
+            <p class="text-xl text-slate-300 mb-10">بيع منتجاتك الرقمية لآلاف الزبائن. نديو عمولة 10% فقط عند البيع</p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12 text-right">
+                <div class="glass rounded-xl p-6">
+                    <div class="text-4xl text-emerald-400 mb-3"><i class="fa-solid fa-upload"></i></div>
+                    <h3 class="font-bold mb-2">1. ارفع منتجك</h3>
+                    <p class="text-slate-400 text-sm">PDF, فيديو, ZIP. مساحة لا محدودة</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-4xl text-emerald-400 mb-3"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h3 class="font-bold mb-2">2. شارك رابطك</h3>
+                    <p class="text-slate-400 text-sm">رابط خاص بك digipro.store/اسمك</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-4xl text-emerald-400 mb-3"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <h3 class="font-bold mb-2">3. اسحب أرباحك</h3>
+                    <p class="text-slate-400 text-sm">USDT لـ Binance ولا CIB بالدينار</p>
+                </div>
+            </div>
+            <button onclick="openSellerForm()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 px-10 py-4 rounded-xl font-bold text-lg">
+                سجل كـ بائع الآن <i class="fa-solid fa-arrow-left mr-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-600 text-sm">© 2026 DigiPro Marketplace. Built on Web3</p>
         </div>
     </footer>
 
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67012345678901234567890/1i9abcdefgh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+
+    <script>
+        // Connect Wallet
+        document.getElementById('connectWallet').onclick = async () => {
+            if (typeof window.ethereum!== 'undefined') {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('تم ربط المحفظة: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    document.getElementById('connectWallet').innerHTML = '<i class="fa-solid fa-check"></i> مربوط';
+                } catch (error) {
+                    alert('تم إلغاء الربط');
+                }
+            } else {
+                alert('نزل MetaMask أولا من metamask.io');
+            }
+        };
+
+        // Buy with Crypto
+        function buyWithCrypto(name, priceUSDT) {
+            const binanceID = "123456789"; // حط Binance Pay ID تاعك هنا
+            const message = `نشري ${name} بـ ${priceUSDT} USDT`;
+            // Binance Pay Deep Link
+            window.open(`https://pay.binance.com/en/checkout/${binanceID}?amount=${priceUSDT}&currency=USDT`, '_blank');
+        }
+
+        // Seller Form
+        function openSellerForm() {
+            window.open('https://wa.me/213550000000?text=حاب نفتح متجر في DigiPro', '_blank');
+        }
+    </script>
+
 </body>
-  </html>
+                                     </html>
